@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_index"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="主頁" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@android:drawable/ic_menu_recent_history"
+            android:title="過去軌跡" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="登入至其他帳戶" />
+        <item
+            android:id="@+id/nav_phonebook"
+            android:icon="@android:drawable/stat_sys_phone_call"
+            android:title="電話簿" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="設定" />
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/nav_comment"
+                android:icon="@android:drawable/ic_dialog_email"
+                android:title="反映與建議" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="退出" />
+        </menu>
+    </item>
+
+</menu>
