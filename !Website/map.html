@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="20">
+    <style type="text/css">
+      #map {
+        height: 100%;
+        font-family: 微軟正黑體,Heiti TC;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 微軟正黑體,Heiti TC;
+      }
+      div {
+        font-family:微軟正黑體,Heiti TC;
+        font-size: 110%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_3XOZrO2EvVg9ZIM5B_CnFhky47yqKwc
+        &libraries=visualization&callback=initMap">
+    </script>
+
+    <script>
+    function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 25.132393, lng: 121.745162},
+    zoom: 14,
+    styles: [{
+      featureType: 'poi',
+      stylers: [{ visibility: 'off' }]  // Turn off points of interest.
+    }, {
+      featureType: 'transit.station',
+      stylers: [{ visibility: 'on' }]  // Turn off bus stations, train stations, etc.
+    }],
+    disableDoubleClickZoom: true
+    });
+    }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+    
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD_3XOZrO2EvVg9ZIM5B_CnFhky47yqKwc",
+        authDomain: "androidapp-7db42.firebaseapp.com",
+        databaseURL: "https://androidapp-7db42.firebaseio.com",
+        projectId: "androidapp-7db42",
+        storageBucket: "androidapp-7db42.appspot.com",
+        messagingSenderId: "124466242116"
+      };
+      firebase.initializeApp(config);
+      var db = firebase.firestore();
+    </script>
+
+    <script>
+      //alert("Success");
+      var docRef = db.collection("users").doc("HTC Desire 650");
+
+      docRef.get().then(function(doc) {
+          if (doc.exists) {
+              console.log("Document data:", doc.data());
+              var now = {lat: parseFloat(doc.data().latitude), lng: parseFloat(doc.data().longitude)};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: now
+              });
+              var contentString = '<div id="content">'+
+                  '<div id="siteNotice">'+
+                  '</div>'+
+                  '<h1 id="firstHeading" class="firstHeading">現時狀況</h1>'+
+                  '<div id="bodyContent">'+
+                  '<p><b>名稱:'+doc.data().name+'</b></p>'+
+                  '<p>經度:'+doc.data().latitude+'</p>'+
+                  '<p>緯度:'+doc.data().longitude+'</p>'+
+                  '<p>時間:'+doc.data().time+'</p>'+
+                  '</div>'+
+                  '</div>';
+
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+
+              //var showtitle=doc.data().name;
+              var marker = new google.maps.Marker({
+                position: now,
+                map: map,
+                title:"現時狀況"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+      });
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+
+      function initMap() {
+
+      }
+    </script>
+
+  </body>
+</html>

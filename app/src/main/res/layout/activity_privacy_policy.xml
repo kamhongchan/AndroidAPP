@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="10dp"
+    tools:context="com.example.kamhongchan.app_findme.PrivacyPolicy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/tv_policytitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="私隱權保護政策"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="10dp" />
+
+        <TextView
+            android:id="@+id/tv_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:paddingTop="20dp"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text="“Find Me”高度重視閣下使用本網站的私隱權益，為此，制訂了以《個人資料保護法》為法理依據的 “Find Me” 私隱權保護政策。本網站向閣下承諾，所有登記的個人資料均屬本政策的保護範圍並將竭力為閣下提供一個安全可靠的網上平台。\n\n 1、 適用範圍\n\n 本私隱權保護政策適用於“Find Me”App。\n\n  2、 個人資料的收集\n\n 如互聯網用戶只作一般性瀏覽本站的的資訊，均無須提供任何個人資料。僅當用戶要求本站提供以下的服務時，本站會向使用者收集基本的個人資料\n 3、個人資料的收集及處理個人資料之保密措施\n 凡於“Find Me”收集的所有個人資料或定位資訊，均受到嚴密保安系統的保護，只有經授權人員方可獲准存取該等個人資料。\n\n  4、資料的運用\n\n 當閣下登記使用“Find Me”之服務及每次登入APP時，即表示同意接受本私隱權保護政策之約束，並同意讓“Find Me”或其合作對象，得於合理範圍內使用、披露及傳遞閣下所有已登記之資料。同時，閣下必須留意在使用“Find Me”之個別服務時所列明之獨立協議及使用條款，以了解有關個人資料可能被分享的方式。\n\n  5、資料之披露\n\n a. “Find Me”不會租用、出售或隨意透露閣下的個人資料予他人，只有得到閣下的同意後，或在下列的情況發生時，才得依法公開閣下的個人資訊：\n •	基於法律之規定；\n •	受司法機關或其他有權機關基於法定程序之要求；\n •	為保障“Find Me”服務及其相關網站之財產及權益；\n •	或在緊急情況下，為保障“Find Me”服務使用者或公眾利益或人身安全時。\n b. 凡透過“Find Me”服務傳送或登載於本網站任何部分的問題查詢、意見、建議等資料，除個人資料外，均被視作以非保密及非專有資料的形式自願提供給本網站。“Find Me”有權把這些資料複製、披露、傳送、刊登和廣播。\n c. 基於各種服務的開發和推廣，“Find Me”得把資料提供予其他合法合作對象。\n\n   6、私隱權保護政策的修訂\n\n “Find Me”可隨時修訂本保護政策，並附以修訂版本說明。如涉及個人資料使用的規定上作出重大修訂，本站將於重要頁面上作出提示，以通知閣下有關修訂之詳細內容。\n 如有任何查詢或建議，請以APP回報系統、郵件或電子郵件：kamhongchanxmacau@gmail.com 聯絡我們。\n\n 7. 由於使用Google服務，“Find Me”受Google 隱私權政策之規定所使用，請參閱 Google 產品隱私設定指南。\n\n  謝謝！\n\n\n "
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="49dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
