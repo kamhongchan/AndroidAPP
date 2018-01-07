@@ -11,10 +11,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,9 +21,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -37,8 +32,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private static final int REQUEST_LOCATION =2;
-    private Button btdemo;
-    private Button btphone;
     private static final String TAG = "user";
 
     @Override
@@ -48,6 +41,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Intent intent = new Intent(MapsActivity.this, NickyService.class);
+        startService(intent);
 
         Button btmenu = (Button)findViewById(R.id.btmenu);
         btmenu.getBackground().setAlpha(200);//0~255透明度值
@@ -105,13 +101,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng keelungcity = new LatLng(25.131465, 121.744551);
         mMap.addMarker(new MarkerOptions().position(keelungcity).title("基隆市政府"));
 
+        LatLng ntou = new LatLng(25.150480, 121.775937);
+        mMap.addMarker(new MarkerOptions().position(ntou).title("國立臺灣海洋大學"));
+
         //切換Camera到基隆地區
         //mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
         //LatLng KeelungArea = new LatLng(25.128219, 121.739188);
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(KeelungArea,15.0f));
        // String text="00457056";
 
-        
+
         //利用Toast的靜態函式makeText來建立Toast物件(測試字句)
         //Toast toast = Toast.makeText(MapsActivity.this, "開始定位"+text, Toast.LENGTH_LONG);
         //顯示Toast

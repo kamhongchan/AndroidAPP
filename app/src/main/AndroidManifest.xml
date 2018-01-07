@@ -56,6 +56,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PrivacyPolicy" />
         <activity android:name=".item"></activity>
+        <service android:name=".NickyService"/>
     </application>
 
 </manifest>
